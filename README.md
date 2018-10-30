@@ -7,6 +7,6 @@ Unity vector3 field handle editor helper Unity3d下的vector3类型编辑器辅�
 
 ### How to use:
 ```C#
-mVector3EditorHandle.DrawPropertyField();
+mVector3EditorHandle.DrawPropertyField();  //inspector script.
 ```
 and you can reference by 'Foo' folder.(Tips:Handle save the local position)
