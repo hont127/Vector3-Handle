@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -12,6 +13,8 @@ namespace Hont
         Editor mEditor;
         Vector3 mTargetVector3;
         bool mSceneViewIsDirty = false;
+
+        public event Action<bool> OnHandleToggle;
 
 
         public Vector3EditorHandle(SerializedProperty serializeProperty, Editor editor)
@@ -49,6 +52,9 @@ namespace Hont
                     if (changeScope.changed)
                     {
                         SceneView.RepaintAll();
+
+                        if (OnHandleToggle != null)
+                            OnHandleToggle(mEnabledHandleMode);
                     }
                 }
             }
